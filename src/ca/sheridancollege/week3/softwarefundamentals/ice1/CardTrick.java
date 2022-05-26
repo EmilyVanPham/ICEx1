@@ -68,6 +68,9 @@ public class CardTrick {
                         "random card!");
             }
         }
+        Card luckyCard = new Card();
+        luckyCard.setValue(3);
+        luckyCard.setSuit(Card.SUITS[3]);
     }
     
 }
