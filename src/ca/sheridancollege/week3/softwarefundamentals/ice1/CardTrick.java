@@ -33,44 +33,26 @@ public class CardTrick {
         }
         
         //insert code to ask the user for Card value and suit, create their card
-        Scanner input = new Scanner (System.in);
-        System.out.printf("%40s","Please enter the card value from 1-13: ");
-        int cardValue;
-        try{
-            cardValue = input.nextInt();
-        } catch(InputMismatchException e) {
-            System.out.println("Error! You must enter number from 1 to 13!");
-            return;
-        }
+        Card luckyCard = new Card();
+        luckyCard.setValue(3);
+        luckyCard.setSuit(Card.SUITS[3]);
         
-        System.out.printf("%40s","Please enter 0 for Hearts, 1 for Diamonds"
-                + "2 for Spades and 3 for Clubs: ");
-        int cardSuitNumber;
-        try{
-            cardSuitNumber = input.nextInt();
-        } catch(InputMismatchException e) {
-            System.out.println("Error! You must enter number from 0 to 3!");
-            return;
-        }
-        
-        String cardSuit = Card.SUITS[cardSuitNumber];
-        System.out.println("Your card is " + cardValue +" " + cardSuit);
-        
+        // flag to determine winning or not
+        boolean isLucky = false;
         // and search magicHand here
         for (int i=0; i<magicHand.length; i++)  {
             Card tempCard = magicHand[i];
         //Then report the result here
-        if(tempCard.getValue() == cardValue && tempCard.getSuit().equalsIgnoreCase(cardSuit)) {
-                System.out.println("Your card is in the magic hand of random " +
-                        "cards!");
-            } else {
-                System.out.println("Your card is not in the magic hand of " +
-                        "random card!");
+        if(tempCard.getValue() == luckyCard.getValue() 
+                && tempCard.getSuit().equalsIgnoreCase(luckyCard.getSuit())) {
+                isLucky = true;
             }
         }
-        Card luckyCard = new Card();
-        luckyCard.setValue(3);
-        luckyCard.setSuit(Card.SUITS[3]);
+        if (isLucky) {
+            System.out.println("You are winning!");
+        } else {
+            System.out.println("You are losing!");
+        }
     }
     
 }
