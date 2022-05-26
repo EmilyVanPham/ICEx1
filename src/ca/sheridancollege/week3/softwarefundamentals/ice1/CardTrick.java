@@ -1,3 +1,6 @@
+/* Modifier: Thi Thanh Van Pham
+ * Student ID: 991660204
+*/
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -21,7 +24,11 @@ public class CardTrick {
         {
             Card c = new Card();
             //c.setValue(insert call to random number generator here)
+            c.setValue((int) (13 * Math.random()+1));
+
             //c.setSuit(Card.SUITS[insert call to random number between 0-3 here])
+            c.setSuit(Card.SUITS[(int)(4 * Math.random())]);
+            magicHand[i] = c;
         }
         
         //insert code to ask the user for Card value and suit, create their card
